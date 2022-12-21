@@ -39,12 +39,13 @@ class Auth extends CI_Controller
 		]);
 
 		if ($this->form_validation->run() == false) {
-			$this->load->view('auth/login');
+			$data['title'] = 'Login';
+			$this->load->view('auth/login', $data);
 		} else {
 			$this->cek_login();
 		}
 	}
-	function registrasi()
+	function register()
 	{
 		if ($this->session->userdata('email')) {
 			redirect('Admin');
@@ -70,7 +71,7 @@ class Auth extends CI_Controller
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Registrasi';
-			$this->load->view('auth/registrasi', $data);
+			$this->load->view('auth/register', $data);
 		} else {
 			$data = [
 				'nama' => htmlspecialchars($this->input->post('nama', true)),
@@ -78,7 +79,6 @@ class Auth extends CI_Controller
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'gambar' => 'default.jpg',
 				'role' => "User",
-				'date_created' => time()
 			];
 			$this->userrole->insert($data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Akunmu telah berhasil terdaftar, Silahkan Login ! </div>');

@@ -7,7 +7,7 @@ function is_logged_in() //membatasi akses ke halaman admin
     } else {
         $role = $ci->session->userdata('role');
         if ($role != "Admin") {
-            redirect('profil');
+            redirect('Dashboard');
         }
     }
 }

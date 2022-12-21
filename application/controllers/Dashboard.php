@@ -24,11 +24,15 @@ class Dashboard extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    is_logged_in2();
   }
 
   public function index()
   {
-    $this->load->view('dashboard');
+    $data['title']='Gilang Service';
+    $this->load->view('layout/dashboard_header',$data);
+    $this->load->view('dashboard/welcome');
+    $this->load->view('layout/dashboard_footer');
   }
 
 }

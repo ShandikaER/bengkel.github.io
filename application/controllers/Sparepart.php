@@ -26,7 +26,8 @@ class Sparepart extends CI_Controller {
     }
 	public function index()
 	{
-		$data['judul'] = "Halaman Sparepart";
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['title'] = "Halaman Sparepart";
 		$data['sparepart'] = $this->Sparepart_model->get();
 		$this->load->view('layout/header_admin', $data);
 		$this->load->view('sparepart/vw_sparepart', $data);
@@ -46,7 +47,7 @@ class Sparepart extends CI_Controller {
 
     function tambah()
     {
-        $data['judul'] = "Halaman Tambah Sparepart";
+        $data['title'] = "Halaman Tambah Sparepart";
         // $data['user'] = $this->db->get_where('user', ['email' =>
         // $this->session->userdata('email')])->row_array();
         $data['sparepart'] = $this->Sparepart_model->get();
@@ -93,7 +94,7 @@ class Sparepart extends CI_Controller {
 
     function edit($id)
     {
-        $data['judul'] = "Halaman Edit Sparepart";
+        $data['title'] = "Halaman Edit Sparepart";
         $data['sparepart'] = $this->Sparepart_model->getById($id);
         // $data['user'] = $this->db->get_where('user', ['email' =>
         // $this->session->userdata('email')])->row_array();
