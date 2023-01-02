@@ -29,9 +29,9 @@ class Sparepart extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title'] = "Halaman Sparepart";
 		$data['sparepart'] = $this->Sparepart_model->get();
-		$this->load->view('layout/header_admin', $data);
+		$this->load->view('layout/admin_header', $data);
 		$this->load->view('sparepart/vw_sparepart', $data);
-		$this->load->view('layout/footer_admin', $data);
+		$this->load->view('layout/admin_footer', $data);
 	}
 	public function hapus($id)
     {
@@ -64,9 +64,9 @@ class Sparepart extends CI_Controller {
             'required' => 'Gambar Wajib di isi',
         ]);
         if ($this->form_validation->run() == false) {
-            $this->load->view("layout/header_admin", $data);
+            $this->load->view("layout/admin_header", $data);
             $this->load->view("sparepart/vw_tambah_sparepart", $data);
-            $this->load->view("layout/footer_admin");
+            $this->load->view("layout/admin_footer");
         } else {
             $data = [
                 'nama' => $this->input->post('nama'),
@@ -111,9 +111,9 @@ class Sparepart extends CI_Controller {
             'required' => 'Gambar Sparepart Wajib di isi',
         ]);
         if ($this->form_validation->run() == false) {
-            $this->load->view("layout/header_admin", $data);
+            $this->load->view("layout/admin_header", $data);
             $this->load->view("sparepart/vw_ubah_sparepart", $data);
-            $this->load->view("layout/footer_admin");
+            $this->load->view("layout/admin_footer");
         } else {
             $data = [
                 'nama' => $this->input->post('nama'),

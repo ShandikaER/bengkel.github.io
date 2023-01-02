@@ -214,6 +214,14 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('Auth/logout') ?>" class="nav-link">
+                                    <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+                                    <p>
+                                        Log Out
+                                    </p>
+                                </a>
+                            </li>
                         <?php
                         } ?>
                     </ul>

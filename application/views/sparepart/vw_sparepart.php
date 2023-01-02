@@ -3,7 +3,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="clearfix">
             <div class="float-left">
-                <h1 class="h3 mb-4 text-gray-800"><?php echo $judul; ?></h1>
+                <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
             </div>
             <div class="float-right">
                 <a href="<?= site_url('Sparepart/tambah') ?>" class="btn btn-info mb-2">Tambah Sparepart</a>

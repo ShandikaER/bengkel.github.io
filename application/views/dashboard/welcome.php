@@ -32,7 +32,7 @@
 </section>
 <!-- Services-->
 <section class="page-section" id="services">
-    <div class="container px-4 px-lg-5">
+    <div class="container px-4 px-lg-5 justify-content-around">
         <h2 class="text-center mt-0">Layanan</h2>
         <hr class="divider">
         <div class="row gx-4 gx-lg-5 center">
